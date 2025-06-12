@@ -191,7 +191,7 @@ wrapperJarPath="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar"
 if [ -r "$wrapperJarPath" ]; then
     log "Found $wrapperJarPath"
 else
-    log "Couldn't find $wrapperJarPath, downloading it ..."
+    log "Couldn't find $wrapperJarPath, downloading it  "
 
     if [ -n "$MVNW_REPOURL" ]; then
       wrapperUrl="$MVNW_REPOURL/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
@@ -211,7 +211,7 @@ else
     fi
 
     if command -v wget > /dev/null; then
-        log "Found wget ... using wget"
+        log "Found wget   using wget"
         [ "$MVNW_VERBOSE" = true ] && QUIET="" || QUIET="--quiet"
         if [ -z "$MVNW_USERNAME" ] || [ -z "$MVNW_PASSWORD" ]; then
             wget $QUIET "$wrapperUrl" -O "$wrapperJarPath" || rm -f "$wrapperJarPath"
@@ -219,7 +219,7 @@ else
             wget $QUIET --http-user="$MVNW_USERNAME" --http-password="$MVNW_PASSWORD" "$wrapperUrl" -O "$wrapperJarPath" || rm -f "$wrapperJarPath"
         fi
     elif command -v curl > /dev/null; then
-        log "Found curl ... using curl"
+        log "Found curl   using curl"
         [ "$MVNW_VERBOSE" = true ] && QUIET="" || QUIET="--silent"
         if [ -z "$MVNW_USERNAME" ] || [ -z "$MVNW_PASSWORD" ]; then
             curl $QUIET -o "$wrapperJarPath" "$wrapperUrl" -f -L || rm -f "$wrapperJarPath"
@@ -237,11 +237,11 @@ else
         fi
         if [ -e "$javaSource" ]; then
             if [ ! -e "$javaClass" ]; then
-                log " - Compiling MavenWrapperDownloader.java ..."
+                log " - Compiling MavenWrapperDownloader.java  "
                 ("$JAVA_HOME/bin/javac" "$javaSource")
             fi
             if [ -e "$javaClass" ]; then
-                log " - Running MavenWrapperDownloader.java ..."
+                log " - Running MavenWrapperDownloader.java  "
                 ("$JAVA_HOME/bin/java" -cp .mvn/wrapper MavenWrapperDownloader "$wrapperUrl" "$wrapperJarPath") || rm -f "$wrapperJarPath"
             fi
         fi
